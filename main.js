@@ -25,7 +25,9 @@ var permStoneInfo = {
       knowledge: 3
 }
 
-function toggleFullScreen() {
+window.addEventListener("load", function() { window.scrollTo(0,1); } );
+//document.addEventListener("touchmove", function(e) { e.preventDefault() } );
+
   var doc = window.document;
   var docEl = doc.documentElement;
 
@@ -38,7 +40,7 @@ function toggleFullScreen() {
   else {
     cancelFullScreen.call(doc);
   }
-}
+
 
 var anim = lottie.loadAnimation({
 			container: document.getElementById("lottie"),
@@ -74,6 +76,7 @@ function animateValues() {
 	anim.assets[4].layers[5].ef[0].ef[0].v.k += subTick;
 	// For some reason, only 1 stone updates...
 }
+
 
 function initialiseStones() {
       tempStoneInfo.knowledge = anim.animationData.layers[5].tm.k  * 24;
@@ -151,9 +154,9 @@ function touchDrag(e) {
       var portrait = window.innerHeight > window.innerWidth ? true : false;
 
       //if ( portrait ) {
-            Xoffset = range(-limiter, limiter, -8, 8, nX - touchOrigin.pX);
+            Xoffset = range(-limiter, limiter, 8, -8, nX - touchOrigin.pX);
       //} else {
-            Yoffset = range(-limiter, limiter, -8, 8, nY - touchOrigin.pY);
+            Yoffset = range(-limiter, limiter, 8, -8, nY - touchOrigin.pY);
 
       //}    
 
